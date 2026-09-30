@@ -1,0 +1,5 @@
+@import "tailwindcss";
+@theme { --color-brand:#0038e0; --color-volt:#d4fa1a; --color-ink:#222; --font-head:"Poppins",sans-serif; --font-sans:"Outfit",sans-serif; }
+body{font-family:var(--font-sans);color:#222;margin:0}
+.grid-bg{background-color:#0038e0;background-image:linear-gradient(rgba(255,255,255,.14) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.14) 1px,transparent 1px);background-size:120px 120px}
+@layer components{.wrap{max-width:1200px;margin-left:auto;margin-right:auto;padding-left:24px;padding-right:24px}}
