@@ -8,9 +8,14 @@ import { CourseGrid } from "../components/course/CourseGrid";
 import { cats } from "../data/categories";
 // @ts-expect-error JavaScript component has no TypeScript declaration.
 import { LearningProgressCard } from "../components/course/LearningProgressCard";
-
+// @ts-expect-error JavaScript component has no TypeScript declaration.
+import { RevenueProgressCard } from "../components/course/RevenueProgressCard";
 import SimpleCard from "../components/course/SimpleCard";
 import { HappyStudents } from "../components/course/HappyStudents";
+import { courses } from "../data/courses";
+import { CourseCard } from "../components/course/CourseCard";
+
+import { StatBlock } from "../components/course/StatBlock";
 
 export function Home() {
   const paths = [
@@ -178,14 +183,17 @@ export function Home() {
         </div>
       </section>
       <section className="mt-24 bg-gradient-to-b from-lime-50 to-white py-24">
-        <div className="wrap grid items-center gap-12 md:grid-cols-2">
+        <div className="wrap relative grid items-center gap-12 md:grid-cols-2">
           <div>
             <SectionHeading>
               Your Path to Professional Growth Starts Here!
             </SectionHeading>
-            <p className="mt-6 text-sm text-gray-600">
+            <p className="mt-6 w-[400px] text-sm text-gray-600">
               Explore our curated selection of courses tailored to enhance your
-              capabilities and accelerate your career journey.
+              capabilities and accelerate your career journey. Whether you are
+              looking to sharpen specific skills, gain industry expertise, or
+              embark on a new career path entirely, we have the resources you
+              need.
             </p>
             <div className="mt-8 flex gap-12">
               {[
@@ -202,10 +210,65 @@ export function Home() {
               ))}
             </div>
           </div>
-          <div className="h-[340px] rounded-3xl bg-gradient-to-br from-indigo-100 to-lime-100" />
+
+          <div className="absolute left-[600px] w-[350px]">
+            <CourseCard c={courses[0]} />
+          </div>
+
+          {/* Hero Male Banner */}
+
+          <img
+            src="/hero-male.png"
+            alt=""
+            className="absolute top-[10px] right-[-300px] z-[5] h-[450px] -translate-x-1/2"
+            onError={(e) => (e.currentTarget.style.display = "none")}
+          />
+
+          <LearningProgressCard className="absolute bottom-[-50px] left-[82%] z-[5] -translate-x-1/2" />
+
+          {/* Left Neon Spiral */}
+          <img
+            src="/neon-spiral-2.png"
+            alt=""
+            className="absolute top-[150px] right-[-60px] z-[5] h-[200px] -translate-x-1/2"
+            onError={(e) => (e.currentTarget.style.display = "none")}
+          />
         </div>
-        <div className="wrap mt-24 grid items-center gap-12 md:grid-cols-2">
-          <div className="h-[340px] rounded-3xl bg-gradient-to-br from-lime-100 to-indigo-100" />
+        <div className="wrap relative mt-[300px] grid items-center gap-12 md:grid-cols-2">
+          <div className=" h-[340px] rounded-3xl bg-gradient-to-br " />
+
+          {/* Hero FeMale Banner */}
+
+          <img
+            src="/hero-female.png"
+            alt=""
+            className="absolute top-[-30px] left-[300px] z-[5] h-[550px] -translate-x-1/2"
+            onError={(e) => (e.currentTarget.style.display = "none")}
+          />
+
+          <RevenueProgressCard className="absolute bottom-[200px] left-[140px] z-[2] -translate-x-1/2" />
+
+          <div className="absolute top-[150px] left-[30px]">
+            <StatBlock
+              title="Year to Date"
+              year="2023"
+              amount="$1,200.38"
+              change="12"
+            />
+          </div>
+
+          {/* Right Neon Spiral */}
+          <img
+            src="/neon-spiral-3.png"
+            alt=""
+            className="absolute top-[50px] left-[300px] z-[5] h-[200px] "
+            onError={(e) => (e.currentTarget.style.display = "none")}
+          />
+
+          <div className="absolute top-[250px] left-[300px] z-[6]">
+            <HappyStudents />
+          </div>
+
           <div>
             <SectionHeading>Create &amp; Manage Courses Easily.</SectionHeading>
             <p className="mt-5 text-sm">
@@ -220,8 +283,11 @@ export function Home() {
                 "Flexibility and Autonomy",
                 "Build a Community",
               ].map((t) => (
-                <li key={t}>
-                  <span className="mr-2 text-brand">●</span>
+                <li key={t} className="flex items-center gap-2">
+                  <span>
+                    <img className="inline mr-2" src="/styled-dot.png" alt="" />
+                  </span>
+
                   {t}
                 </li>
               ))}
@@ -230,7 +296,7 @@ export function Home() {
         </div>
       </section>
       <section className="grid-bg py-24 text-center text-white">
-        <div className="wrap">
+        <div className="wrap relative">
           <SectionHeading>
             Unlock Your Potential as a<br />
             Creator with ByteSpace
@@ -240,6 +306,57 @@ export function Home() {
             local and international creators.
           </p>
           <Button className="mt-8">Join as Creator</Button>
+
+          <img
+            src="/bottom-icon-1.png"
+            alt=""
+            className="absolute top-[-96px] left-[-155px] z-[5] h-[200px] "
+            onError={(e) => (e.currentTarget.style.display = "none")}
+          />
+
+          <img
+            src="/bottom-icon-2.png"
+            alt=""
+            className="absolute bottom-[-96px] left-[-100px] z-[5] h-[160px] "
+            onError={(e) => (e.currentTarget.style.display = "none")}
+          />
+
+          <img
+            src="/bottom-icon-3.png"
+            alt=""
+            className="absolute top-[100px] left-[-160px] z-[5] h-[150px] "
+            onError={(e) => (e.currentTarget.style.display = "none")}
+          />
+
+          <img
+            src="/bottom-icon-4.png"
+            alt=""
+            className="absolute top-[-70px] right-[150px] z-[5] h-[150px] "
+            onError={(e) => (e.currentTarget.style.display = "none")}
+          />
+
+          <img
+            src="/bottom-icon-5.png"
+            alt=""
+            className="absolute top-[-50px] right-[-160px] z-[5] h-[300px] "
+            onError={(e) => (e.currentTarget.style.display = "none")}
+          />
+
+          <div className="absolute top-[191px] right-0 z-[1] h-[130px] overflow-hidden">
+            <img
+              src="/neon-spiral-2.png"
+              alt=""
+              className="w-full"
+              onError={(e) => (e.currentTarget.style.display = "none")}
+            />
+          </div>
+
+          <img
+            src="/white-spiral-2.png"
+            alt=""
+            className="absolute top-[-70px] left-[60px] z-[5] h-[150px] "
+            onError={(e) => (e.currentTarget.style.display = "none")}
+          />
         </div>
       </section>
       <section className="bg-gradient-to-b from-lime-100 to-white py-20">
@@ -251,7 +368,11 @@ export function Home() {
               Community Is Saying
             </SectionHeading>
             <p className="text-sm text-gray-600">
-              At ByteSpace, our vibrant community of learners and creators is at the heart of what we do. Hear directly from those who have experienced the transformative journey of learning and creating on our platform. Explore testimonials that reflect the diverse perspectives of enthusiastic learners and accomplished creators.
+              At ByteSpace, our vibrant community of learners and creators is at
+              the heart of what we do. Hear directly from those who have
+              experienced the transformative journey of learning and creating on
+              our platform. Explore testimonials that reflect the diverse
+              perspectives of enthusiastic learners and accomplished creators.
             </p>
           </div>
           <div className="mt-12 grid gap-6 md:grid-cols-3">
