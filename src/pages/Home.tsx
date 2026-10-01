@@ -9,6 +9,9 @@ import { cats } from "../data/categories";
 // @ts-expect-error JavaScript component has no TypeScript declaration.
 import { LearningProgressCard } from "../components/course/LearningProgressCard";
 
+import SimpleCard from "../components/course/SimpleCard";
+import { HappyStudents } from "../components/course/HappyStudents";
+
 export function Home() {
   const paths = [
     "Design",
@@ -105,6 +108,17 @@ export function Home() {
           onError={(e) => (e.currentTarget.style.display = "none")}
         />
 
+        <SimpleCard
+          className="absolute bg-amber-50 rounded-2xl p-4 bottom-[260px] left-[33%] z-[5] -translate-x-1/2"
+          title="UI/UX Design"
+          courseCount={200}
+          studentCount={1000}
+        />
+
+        <div className="absolute bottom-[50px] left-[30%] z-[5] -translate-x-1/2">
+          <HappyStudents />
+        </div>
+
         <LearningProgressCard className="absolute bottom-[220px] left-[62%] z-[5] -translate-x-1/2" />
       </section>
       <div className="bg-gray-100 py-12">
@@ -145,12 +159,19 @@ export function Home() {
           Explore Diverse Learning Paths at Bytespace
         </h2>
         <div className="mt-10 grid grid-cols-2 gap-5 md:grid-cols-6">
-          {paths.map((p) => (
+          {paths.map((p, i) => (
             <div
               key={p}
-              className="rounded-2xl border border-gray-300 px-4 py-8"
+              className="rounded-2xl border border-gray-300 px-4 py-8 text-center"
             >
-              <div className="mx-auto mb-3 h-9 w-9 rounded-lg bg-volt" />
+              <div className="mx-auto mb-3 flex h-9 w-9 items-center justify-center rounded-lg bg-volt">
+                <img
+                  src={`/path-${i + 1}.png`}
+                  alt=""
+                  className="h-6 w-6 object-contain"
+                />
+              </div>
+
               {p}
             </div>
           ))}
@@ -230,8 +251,7 @@ export function Home() {
               Community Is Saying
             </SectionHeading>
             <p className="text-sm text-gray-600">
-              At ByteSpace, our vibrant community of learners and creators is at
-              the heart of what we do.
+              At ByteSpace, our vibrant community of learners and creators is at the heart of what we do. Hear directly from those who have experienced the transformative journey of learning and creating on our platform. Explore testimonials that reflect the diverse perspectives of enthusiastic learners and accomplished creators.
             </p>
           </div>
           <div className="mt-12 grid gap-6 md:grid-cols-3">
